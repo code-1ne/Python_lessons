@@ -1,3 +1,3 @@
 import cowsay as c
 
-c.cow("Hello")
+print(c.get_output_string('trex', 'Hello (extinct) World'))
