@@ -1,33 +1,16 @@
-class Building:
-    year = None
-    city = None
-
-    def __init__(self, year, city):
-        self.year = year
-        self.city = city
-
-    def get_info(self):
-        print("Year", self.year, ". City", self.city)
-
-class School(Building):
-    pupils = 0
-
-    def __init__(self, pupils, year, city):
-        super(School, self).__init__(year, city)
-        self.pupils = pupils
-
-    def get_info(self):
-        super().get_info()
-        print("Pupils:", self.pupils)
+import webbrowser
 
 
-class House(Building):
-    pass
+def validator(func):
+    def wrapper(url):
+        if "." in url:
+            func(url)
+        else:
+            print("Неверный юрл!")
+    return wrapper
 
-class Shop(Building):
-    pass
+@validator
+def open_url(url):
+    webbrowser.open(url)
 
-school = School(100, 2000, "Kyiv")
-school.get_info()
-house = House(2000, "Kyiv")
-shop = Shop(2000, "Kyiv")
+open_url("https://github.com/code-1ne/Python_lessons")
